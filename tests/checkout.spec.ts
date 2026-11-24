@@ -17,12 +17,16 @@ test('Checkout E2E process', async ({ page }) => {
     await expect(page).toHaveURL(/checkout-step-two/);
     await expect(page.getByText('Sauce Labs Backpack')).toBeVisible();
     await page.getByRole('button', {name: 'Finish'}).click();
-    await expect(page.locator('[data-test="checkout-complete-container"]')).toBeVisible();
+    await expect(page.getByText('Thank you for your order!')).toBeVisible();
+});
 
-
-
-
-
-
-
-}) 
+test('checkout requires first name', async ({ page }) => {
+    await login(page, 'standard_user', 'secret_sauce');
+    await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+    await page.locator('[data-test="shopping-cart-link"]').click();
+    await page.getByRole('button', { name: 'Checkout' }).click();
+    await page.getByPlaceholder('Last Name').fill('Smith');
+    await page.getByPlaceholder('Zip/Postal Code').fill('12345');
+    await page.getByRole('button', {name: 'Continue'}).click();
+    await expect(page.getByText('Error: First Name is required')).toBeVisible();
+});

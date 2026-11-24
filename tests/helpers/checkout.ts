@@ -5,4 +5,4 @@ export async function checkout(page: Page, firstName: string, lastName: string, 
     await page.getByPlaceholder('Zip/Postal Code').fill(zipCode);
     await page.getByRole('button', { name: 'Continue' }).click();
 
-};
+}
