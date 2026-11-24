@@ -28,6 +28,4 @@ test('user can remove a product from the cart', async ({ page }) => {
 
     await expect(page.getByText('Sauce Labs Backpack')).not.toBeVisible();
 }); 
-
-
 });
