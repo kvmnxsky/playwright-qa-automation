@@ -1,6 +1,9 @@
 import {test, expect} from '@playwright/test';
 import {login} from './helpers/login';
 import {checkout} from './helpers/checkout';
+import { InventoryPage } from '../pages/InventoryPage';
+import { CartPage } from '../pages/CartPage';
+import { CheckoutPage } from '../pages/CheckoutPage';
 
 test.beforeEach(async ({ page }) => {
   await login(page, 'standard_user', 'secret_sauce');
@@ -35,15 +38,19 @@ const checkoutCases = [
 for (const testCase of checkoutCases) {
 
   test(`checkout validation: ${testCase.field}`, async ({ page }) => {
-    await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-    await page.locator('[data-test="shopping-cart-link"]').click();
-    await page.getByRole('button', { name: 'Checkout' }).click();
-    await page.getByPlaceholder('First Name').fill(testCase.firstName);
-    await page.getByPlaceholder('Last Name').fill(testCase.lastName);
-    await page.getByPlaceholder('Zip/Postal Code').fill(testCase.postalCode);
-
-    await page.getByRole('button', { name: 'Continue' }).click();
-    await expect(page.locator('[data-test="error"]')).toHaveText(testCase.error);
+    const inventoryPage = new InventoryPage(page);
+    const cartPage = new CartPage(page);
+    const checkoutPage = new CheckoutPage(page);
+    await inventoryPage.addBackpackToCart();
+    await inventoryPage.openCart();
+    await cartPage.proceedToCheckout();
+    await checkoutPage.fillCheckoutInformation(
+        testCase.firstName,
+        testCase.lastName,
+        testCase.postalCode
+    );
+    await checkoutPage.continue();
+    await expect(checkoutPage.getErrorMessage()).toHaveText(testCase.error);
   });
 
 }
