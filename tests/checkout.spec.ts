@@ -4,7 +4,9 @@ import {checkout} from './helpers/checkout';
 
 test.beforeEach(async ({ page }) => {
   await login(page, 'standard_user', 'secret_sauce');
+
 });
+test.describe('Checkout validation', () => {
 
 const checkoutCases = [
   {
@@ -45,7 +47,7 @@ for (const testCase of checkoutCases) {
   });
 
 }
-
+});
 test('Checkout E2E process', async ({ page }) => {
     await expect(page).toHaveURL(/inventory/);
     await expect(page.getByText('Products')).toBeVisible();
