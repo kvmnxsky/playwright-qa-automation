@@ -4,10 +4,14 @@ import {checkout} from './helpers/checkout';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
+import { users } from '../test-data/users'
 
 test.beforeEach(async ({ page }) => {
-  await login(page, 'standard_user', 'secret_sauce');
-
+  await login(
+    page,
+    users.standard.username,
+    users.standard.password
+  );
 });
 test.describe('Checkout validation', () => {
 
