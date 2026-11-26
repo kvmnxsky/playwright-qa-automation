@@ -5,4 +5,9 @@ export class CartPage {
   }
     async proceedToCheckout() {
     await this.page.getByRole('button', { name: 'Checkout' }).click();
-}}
+}
+    async removeProduct(product: string) {
+      await this.page.locator('.cart_item_label').filter({ hasText: product }).getByRole('button', { name: 'Remove' }).click();
+    }
+
+}
