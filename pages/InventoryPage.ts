@@ -10,10 +10,11 @@ export class InventoryPage {
     async addProductToCart(product: string) {
       await this.page.locator('.inventory_item').filter({ hasText: product }).getByRole('button', { name: 'Add to cart' }).click();
     }
+    async openProductDetails(product: string) {
+      await this.page.locator('[data-test="inventory-item-name"]').getByText(product).click();
+    }
   async openCart() {
     await this.page.locator('[data-test="shopping-cart-link"]').click();
   }
-  
-  
   }
 
