@@ -5,8 +5,6 @@ import { InventoryPage } from '../pages/InventoryPage';
 import { CartPage } from '../pages/CartPage';
 import { products } from '../test-data/products';
 
-
-
 test.describe('Shopping Cart', () => {
 
 test.beforeEach(async ({ page }) => {
@@ -67,7 +65,7 @@ const inventoryPage = new InventoryPage(page);
     await inventoryPage.addProductToCart(products.backpack.name);
     await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveText('1');
     await inventoryPage.openHamburgerMenu();
-    await page.getByRole('link', { name: 'Reset App State' }).click();
+    await page.getByRole('button', { name: 'Reset App State' }).click();
     await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveCount(0);
 });
 });
