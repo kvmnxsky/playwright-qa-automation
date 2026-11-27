@@ -128,15 +128,11 @@ The current suite contains **51 passing tests** with **0 failures, 0 flaky tests
 
 ![Playwright HTML test report](playwright-report.png)
 
-## 🎯 Skills Demonstrated
+## 🎯 Key Practices Demonstrated
 
-- Writing maintainable end-to-end tests with Playwright and TypeScript
-- Designing reusable Page Objects
-- Creating reusable helpers for common test flows
-- Organizing test data separately from test logic
-- Working with Playwright locators, filters, and assertions
-- Testing dynamic UI state and navigation
-- Validating sorting using extracted and transformed data
-- Cross-browser testing with Chromium, Firefox, and WebKit
-- Debugging flaky and browser-specific test failures
-- Using Git and GitHub with incremental, meaningful commits
+- Page Object Model for reusable page interactions
+- Reusable test data and helper functions
+- Cross-browser testing across Chromium, Firefox, and WebKit
+- Dynamic UI and state validation
+- Automated test execution with GitHub Actions
+- Playwright HTML reporting
