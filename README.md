@@ -1,5 +1,7 @@
 # 🎭 Playwright QA Automation Portfolio
 
+[![Playwright Tests](https://github.com/kvmnxsky/playwright-qa-automation/actions/workflows/playwright.yml/badge.svg)](https://github.com/kvmnxsky/playwright-qa-automation/actions/workflows/playwright.yml)
+
 Automated end-to-end testing project built using Playwright, TypeScript and SauceDemo.
 
 The project demonstrates practical UI testing, Page Object Model design, reusable test data, and cross-browser testing across Chromium, Firefox and Webkit.
