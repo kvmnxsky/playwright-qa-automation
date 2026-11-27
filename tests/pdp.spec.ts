@@ -23,7 +23,4 @@ const inventoryPage = new InventoryPage(page);
     await page.getByRole('button', { name: 'Back to products'}).click();
     await expect(page).toHaveURL(/inventory/);
     await expect(page.getByText(products.backpack.name)).toBeVisible();
-
-
-
-})
+});
