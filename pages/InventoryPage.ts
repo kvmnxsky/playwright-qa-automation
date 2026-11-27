@@ -5,7 +5,7 @@ export class InventoryPage {
   constructor(private page: Page) {
   }
     async addBackpackToCart() {
-    await this.page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+      await this.page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
     }
     async addProductToCart(product: string) {
       await this.page.locator('.inventory_item').filter({ hasText: product }).getByRole('button', { name: 'Add to cart' }).click();
@@ -13,8 +13,11 @@ export class InventoryPage {
     async openProductDetails(product: string) {
       await this.page.locator('[data-test="inventory-item-name"]').getByText(product).click();
     }
-  async openCart() {
-    await this.page.locator('[data-test="shopping-cart-link"]').click();
+    async openCart() {
+      await this.page.locator('[data-test="shopping-cart-link"]').click();
   }
+    async openHamburgerMenu() {
+      await this.page.getByRole('button', { name: 'Open Menu'}).click();
+    }
   }
 
