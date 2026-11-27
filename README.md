@@ -4,6 +4,10 @@ Automated end-to-end testing project built using Playwright, TypeScript and Sauc
 
 The project demonstrates practical UI testing, Page Object Model design, reusable test data, and cross-browser testing across Chromium, Firefox and Webkit.
 
+![Playwright](https://img.shields.io/badge/Playwright-Testing-45ba4b?style=for-the-badge&logo=playwright)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+
 ## 🛠️ Tech Stack
 - 🎭 Playwright
 - 🔷 TypeScript
@@ -114,3 +118,23 @@ Open the Playwright HTML report:
 ```bash
 npx playwright show-report
 ```
+## 📊 Test Report
+
+The automated test suite is executed across Chromium, Firefox, and WebKit.
+
+The current suite contains **51 passing tests** with **0 failures, 0 flaky tests, and 0 skipped tests**.
+
+![Playwright HTML test report](playwright-report.png)
+
+## 🎯 Skills Demonstrated
+
+- Writing maintainable end-to-end tests with Playwright and TypeScript
+- Designing reusable Page Objects
+- Creating reusable helpers for common test flows
+- Organizing test data separately from test logic
+- Working with Playwright locators, filters, and assertions
+- Testing dynamic UI state and navigation
+- Validating sorting using extracted and transformed data
+- Cross-browser testing with Chromium, Firefox, and WebKit
+- Debugging flaky and browser-specific test failures
+- Using Git and GitHub with incremental, meaningful commits
